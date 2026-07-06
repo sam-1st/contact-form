@@ -82,6 +82,35 @@ text-align:center;
 font-weight:bold;
 
 }
+.spinner{
+    display:none;
+    width:18px;
+    height:18px;
+    border:3px solid rgba(255,255,255,.4);
+    border-top:3px solid white;
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+    margin:auto;
+}
+
+button{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+}
+
+@keyframes spin{
+
+    0%{
+        transform:rotate(0deg);
+    }
+
+    100%{
+        transform:rotate(360deg);
+    }
+
+}
 
 </style>
 
@@ -118,8 +147,10 @@ name="message"
 placeholder="Your Message"
 required></textarea>
 
-<button type="submit">
-Send Message
+<button type="submit" id="submitBtn">
+    <span id="btnText">Send Message</span>
+
+    <span id="spinner" class="spinner"></span>
 </button>
 
 </form>
@@ -129,44 +160,78 @@ Send Message
 </div>
 
 <script>
+const form = document.getElementById("contactForm");
 
-const form=document.getElementById("contactForm");
+const spinner = document.getElementById("spinner");
 
-form.addEventListener("submit",async(e)=>{
+const btnText = document.getElementById("btnText");
 
-e.preventDefault();
+const submitBtn = document.getElementById("submitBtn");
 
-const data={
-name:form.name.value,
-email:form.email.value,
-subject:form.subject.value,
-message:form.message.value
-};
+form.addEventListener("submit", async (e) => {
 
-const response=await fetch("/send",{
+    e.preventDefault();
 
-method:"POST",
+    submitBtn.disabled = true;
 
-headers:{
-"Content-Type":"application/json"
-},
+    spinner.style.display = "inline-block";
 
-body:JSON.stringify(data)
+    btnText.innerText = "Sending...";
+
+    const data = {
+
+        name: form.name.value,
+
+        email: form.email.value,
+
+        subject: form.subject.value,
+
+        message: form.message.value
+
+    };
+
+    try {
+
+        const response = await fetch("/send", {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type": "application/json"
+
+            },
+
+            body: JSON.stringify(data)
+
+        });
+
+        const result = await response.json();
+
+        document.getElementById("response").innerText = result.message;
+
+        if (result.success) {
+
+            form.reset();
+
+        }
+
+    } catch (error) {
+
+        document.getElementById("response").innerText =
+            "Unable to send your message. Please try again.";
+
+    } finally {
+
+        submitBtn.disabled = false;
+
+        spinner.style.display = "none";
+
+        btnText.innerText = "Send Message";
+
+    }
 
 });
-
-const result=await response.json();
-
-document.getElementById("response").innerText=result.message;
-
-if(result.success){
-
-form.reset();
-
-}
-
-});
-
 </script>
 
 </body>
