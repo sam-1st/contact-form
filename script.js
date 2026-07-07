@@ -12,8 +12,8 @@ form.addEventListener("submit", function (e) {
     btnText.textContent = "Sending...";
 
     emailjs.sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_tbjfywq",
+        "template_vb7mbpt",
         this
     ).then(() => {
 
