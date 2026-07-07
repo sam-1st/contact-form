@@ -2,44 +2,33 @@ const form = document.getElementById("contactForm");
 const spinner = document.getElementById("spinner");
 const btnText = document.getElementById("btnText");
 const submitBtn = document.getElementById("submitBtn");
+const response = document.getElementById("response");
 
-form.addEventListener("submit", async (e) => {
+form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     submitBtn.disabled = true;
     spinner.style.display = "inline-block";
-    btnText.innerText = "Sending...";
+    btnText.textContent = "Sending...";
 
-    const data = {
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value,
-        message: form.message.value
-    };
+    emailjs.sendForm(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        this
+    ).then(() => {
 
-    try {
-        const response = await fetch("/api/send", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
+        response.textContent = "Message sent successfully!";
+        form.reset();
 
-        const result = await response.json();
+    }).catch(() => {
 
-        document.getElementById("response").innerText = result.message;
+        response.textContent = "Failed to send message.";
 
-        if (result.success) {
-            form.reset();
-        }
+    }).finally(() => {
 
-    } catch (error) {
-        document.getElementById("response").innerText =
-            "Unable to send your message. Please try again.";
-    } finally {
         submitBtn.disabled = false;
         spinner.style.display = "none";
-        btnText.innerText = "Send Message";
-    }
+        btnText.textContent = "Send Message";
+
+    });
 });
