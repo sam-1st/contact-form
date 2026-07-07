@@ -113,9 +113,9 @@ Computer Science Student | Web Developer | IT Support Enthusiast
 
 ### Connect with me
 
-- GitHub: https://github.com/YOUR_USERNAME
-- LinkedIn: https://linkedin.com/in/sam-1st
-- Email: sammiekariuki552@gmail.com
+- [GitHub](https://github.com/sam-1st)
+- [LinkedIn](https://linkedin.com/in/sam-1st)
+- [Email](mailto:sammiekariuki552@gmail.com)
 
 ---
 
