@@ -43,14 +43,12 @@ REACH-SAM/
 │
 ├── public/
 │   └── favicon.ico
-│
+├── css/
+│   └── style.css           # Website styling
+├── js/
+│   └── script.js           # Contact form logi
 ├── index.html          # Main webpage
-├── style.css           # Website styling
-├── script.js           # Contact form logic
-├── package.json        # Project metadata
-├── vercel.json         # Vercel configuration
 ├── README.md           # Project documentation
-└── .gitignore
 ```
 
 ---
