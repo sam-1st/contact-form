@@ -68,11 +68,3 @@ Computer Science Student | Web Developer | IT Support Enthusiast
 
 This project is open-source and available under the [MIT License.](https://github.com/sam-1st/contact-form/blob/main/LICENSE)
 
----
-
-## ⭐ Support
-
-If you found this project helpful, consider giving it a ⭐ on GitHub.
-
-Feedback, suggestions, and contributions are always welcome.
-
