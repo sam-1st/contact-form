@@ -35,6 +35,8 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
@@ -104,9 +106,10 @@ textarea:focus-visible {
 .page {
   position: relative;
   z-index: 1;
-  max-width: 1280px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 24px 40px 56px;
+  padding: 20px 36px 36px;
 }
 
 /* ==========================================================================
@@ -116,7 +119,7 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 4px 56px;
+  padding: 8px 4px 32px;
   opacity: 0;
   animation: fadeSlideDown 0.7s var(--ease) forwards;
 }
@@ -191,7 +194,7 @@ textarea:focus-visible {
 .contact {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  gap: 44px;
+  gap: 36px;
   align-items: center;
 }
 
@@ -221,17 +224,17 @@ textarea:focus-visible {
    5. LEFT PANEL — INFO
    ========================================================================== */
 .eyebrow {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .contact__title {
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 2.1vw, 2.15rem); /* ~30–34px */
+  font-size: clamp(1.55rem, 1.9vw, 1.9rem); /* ~25–30px, compact */
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -240,26 +243,26 @@ textarea:focus-visible {
 .contact__title span { color: var(--accent); }
 
 .contact__lede {
-  margin-top: 16px;
-  max-width: 440px;
-  font-size: 15px;
-  line-height: 1.7;
+  margin-top: 14px;
+  max-width: 400px;
+  font-size: 13.5px;
+  line-height: 1.65;
   color: var(--text-secondary);
   font-weight: 400;
 }
 
 .info-cards {
-  margin-top: 28px;
+  margin-top: 22px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .info-card {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  padding: 16px 18px;
+  gap: 14px;
+  padding: 13px 16px;
   background: rgba(26, 27, 79, 0.5);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -281,53 +284,53 @@ textarea:focus-visible {
   flex-shrink: 0;
   display: grid;
   place-items: center;
-  width: 40px; height: 40px;
-  border-radius: 12px;
+  width: 34px; height: 34px;
+  border-radius: 10px;
   background: var(--accent-soft);
   color: var(--accent);
 }
-.info-card__icon svg { width: 19px; height: 19px; }
+.info-card__icon svg { width: 16px; height: 16px; }
 
 .info-card__label {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-secondary);
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 .info-card__value {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.55;
   color: var(--text);
 }
 
 .socials {
-  margin-top: 36px;
+  margin-top: 22px;
   animation-delay: 0.8s;
 }
 .socials__label {
-  font-size: 12px;
+  font-size: 10.5px;
   color: var(--text-secondary);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 .socials__row {
   display: flex;
-  gap: 16px;
+  gap: 12px;
 }
 .social {
   display: grid;
   place-items: center;
-  width: 42px; height: 42px;
-  border-radius: 12px;
+  width: 36px; height: 36px;
+  border-radius: 10px;
   border: 1px solid var(--border);
   color: var(--text-secondary);
   transition: transform 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease), background 0.3s var(--ease);
 }
-.social svg { width: 17px; height: 17px; }
+.social svg { width: 15px; height: 15px; }
 .social:hover {
   color: var(--bg);
   background: var(--accent);
@@ -350,12 +353,12 @@ textarea:focus-visible {
 .form {
   position: relative;
   width: 100%;
-  max-width: 460px;
+  max-width: 420px;
   margin: 0 auto;
   background: linear-gradient(160deg, rgba(30, 31, 88, 0.75), rgba(19, 20, 60, 0.75));
   border: 1px solid var(--border-strong);
   border-radius: 20px;
-  padding: 34px 36px 32px;
+  padding: 28px 32px 26px;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   box-shadow: var(--shadow-card);
@@ -374,24 +377,24 @@ textarea:focus-visible {
 }
 
 .form__eyebrow {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-secondary);
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 .form__title {
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 2.1vw, 2.15rem); /* matches reduced heading scale */
+  font-size: 1.55rem; /* ~25px, compact */
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   letter-spacing: -0.01em;
 }
 
 .field {
   position: relative;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 .field__input {
   width: 100%;
@@ -400,23 +403,23 @@ textarea:focus-visible {
   border-bottom: 1px solid var(--border-strong);
   color: var(--text);
   font-family: inherit;
-  font-size: 15px;
+  font-size: 13.5px;
   font-weight: 400;
-  padding: 8px 2px 10px;
+  padding: 6px 2px 8px;
   transition: border-color 0.3s var(--ease);
 }
 .field__input--textarea {
   resize: vertical;
-  min-height: 44px;
-  padding-top: 10px;
+  min-height: 36px;
+  padding-top: 8px;
 }
 .field__input::placeholder { color: transparent; }
 
 .field__label {
   position: absolute;
   left: 2px;
-  top: 12px;
-  font-size: 14px;
+  top: 8px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--text-secondary);
   pointer-events: none;
@@ -442,8 +445,8 @@ textarea:focus-visible {
 }
 .field__input:focus ~ .field__label,
 .field__input:not(:placeholder-shown) ~ .field__label {
-  top: -14px;
-  font-size: 12px;
+  top: -11px;
+  font-size: 11px;
   color: var(--accent);
 }
 
@@ -452,10 +455,10 @@ textarea:focus-visible {
 .field--invalid .field__label { color: var(--danger); }
 
 .field__error {
-  min-height: 16px;
-  font-size: 12px;
+  min-height: 14px;
+  font-size: 11px;
   color: var(--danger);
-  margin-top: 6px;
+  margin-top: 4px;
   opacity: 0;
   transform: translateY(-4px);
   transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
@@ -466,10 +469,10 @@ textarea:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 .field__count {
-  font-size: 11.5px;
+  font-size: 10.5px;
   color: var(--text-secondary);
   white-space: nowrap;
   margin-left: auto;
@@ -482,18 +485,18 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  width: 200px;
+  gap: 8px;
+  width: 180px;
   max-width: 100%;
-  height: 50px;
-  margin: 16px auto 0;
-  padding: 0 24px;
+  height: 44px;
+  margin: 10px auto 0;
+  padding: 0 20px;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   background: linear-gradient(135deg, var(--accent), #7C5CFA);
   color: #0D0E2B;
   font-family: inherit;
-  font-size: 15.5px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.01em;
   cursor: pointer;
