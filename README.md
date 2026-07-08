@@ -52,7 +52,7 @@ REACH-SAM/
 ```
 ## 👨‍💻 Author
 
-**Sammie Kariuki**
+[**Sammie Kariuki**](https://sam-cf.vercel.app/)
 
 Computer Science Student | Web Developer | IT Support Enthusiast
 
