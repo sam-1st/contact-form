@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavToggle();
   initMessageCounter();
   initFormValidation();
+  initPhonePopup();
 });
 
 /* --------------------------------------------------------------------
@@ -50,6 +51,51 @@ function initMessageCounter() {
 
   message.addEventListener('input', update);
   update();
+}
+
+/* --------------------------------------------------------------------
+   Phone click-to-contact popup (Call / WhatsApp)
+   -------------------------------------------------------------------- */
+function initPhonePopup() {
+  const trigger = document.getElementById('phoneTrigger');
+  const menu = document.getElementById('phoneMenu');
+  const callLink = document.getElementById('phoneCallLink');
+  const whatsappLink = document.getElementById('phoneWhatsappLink');
+  if (!trigger || !menu || !callLink || !whatsappLink) return;
+
+  // Build tel: and wa.me links from the visible phone number text.
+  const rawNumber = trigger.textContent.replace(/\u00a0/g, ' ').trim();
+  const digitsWithPlus = rawNumber.replace(/[^\d+]/g, '');
+  const digitsOnly = digitsWithPlus.replace(/\+/g, '');
+
+  callLink.href = `tel:${digitsWithPlus}`;
+  whatsappLink.href = `https://wa.me/${digitsOnly}`;
+
+  const closeMenu = () => {
+    menu.hidden = true;
+    trigger.setAttribute('aria-expanded', 'false');
+  };
+  const openMenu = () => {
+    menu.hidden = false;
+    trigger.setAttribute('aria-expanded', 'true');
+  };
+
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (menu.hidden) openMenu();
+    else closeMenu();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!menu.hidden && !menu.contains(e.target) && e.target !== trigger) closeMenu();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !menu.hidden) {
+      closeMenu();
+      trigger.focus();
+    }
+  });
 }
 
 /* --------------------------------------------------------------------
