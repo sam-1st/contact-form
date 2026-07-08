@@ -1,9 +1,0 @@
-{
-  "name": "contact-form",
-  "version": "1.0.0",
-  "description": "Simple contact form with email sending via Vercel serverless function",
-  "main": "api/send.js",
-  "dependencies": {
-    "nodemailer": "^6.9.13"
-  }
-}
