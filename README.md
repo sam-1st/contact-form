@@ -44,64 +44,12 @@ REACH-SAM/
 ├── public/
 │   └── favicon.ico
 ├── css/
-│   └── style.css           # Website styling
+│   └── style.css       # Website styling
 ├── js/
-│   └── script.js           # Contact form logi
+│   └── script.js       # Contact form logi
 ├── index.html          # Main webpage
 ├── README.md           # Project documentation
 ```
-
----
-
-## ⚙️ Installation
-
-Clone the repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-```
-
-Navigate into the project
-
-```bash
-cd YOUR_REPOSITORY
-```
-
-Open the project using Visual Studio Code
-
-```bash
-code .
-```
-
-Run using VS Code Live Server or any static web server.
-
----
-
-## 📧 Email Configuration
-
-This project uses **EmailJS** for sending emails.
-
-Create an EmailJS account and obtain:
-
-- Public Key
-- Service ID
-- Template ID
-
-Update these values inside `script.js`.
-
----
-
-## 🌍 Deployment
-
-This project can be deployed on:
-
-- GitHub Pages
-- Vercel
-
-No backend server is required since EmailJS handles email delivery.
-
----
-
 ## 👨‍💻 Author
 
 **Sammie Kariuki**
