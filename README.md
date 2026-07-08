@@ -1,4 +1,3 @@
-Here's a professional `README.md` you can use for your portfolio project.
 # 🌐 REACH-SAM Portfolio
 
 A modern, responsive personal portfolio website showcasing my skills, projects, and contact information. The project is designed with a clean UI, smooth user experience, and a functional contact form powered by **EmailJS**, allowing visitors to send messages directly without requiring a backend server.
