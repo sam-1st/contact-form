@@ -324,7 +324,9 @@ textarea:focus-visible {
   color: var(--accent);
 }
 
+/* Default state: menu is closed unless it explicitly lacks [hidden] */
 .phone-menu {
+  display: none;
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
@@ -344,7 +346,7 @@ textarea:focus-visible {
   pointer-events: none;
 }
 .phone-menu[hidden] {
-  display: none;
+  display: none !important;
 }
 .phone-menu:not([hidden]) {
   display: flex;
