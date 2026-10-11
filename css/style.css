@@ -675,3 +675,27 @@ textarea:focus-visible {
 
   .toast-stack { left: 16px; right: 16px; top: 16px; max-width: none; }
 }
+
+/* ==========================================================================
+   9. FIX: CHROME AUTOFILL OVERRIDING THE DARK THEME + FLOATING LABEL
+   (kept last so it wins over earlier rules)
+   ========================================================================== */
+
+/* Stop Chrome's white autofill background; paint the card colour instead */
+.field__input:-webkit-autofill,
+.field__input:-webkit-autofill:hover,
+.field__input:-webkit-autofill:focus,
+.field__input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--text);
+  caret-color: var(--text);
+  -webkit-box-shadow: 0 0 0 1000px var(--card) inset;
+  box-shadow: 0 0 0 1000px var(--card) inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Keep the label floated when autofilled (same values as the existing floated state) */
+.field__input:-webkit-autofill ~ .field__label {
+  top: -9px;
+  font-size: 10px;
+  color: var(--accent);
+}
